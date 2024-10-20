@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ $EUID -ne 0 ]];
+then
+    echo "Re-launching with `sudo`"
+    exec sudo /bin/bash "$0" "$@"
+fi
+export NEEDRESTART_MODE=a
+export DEBIAN_FRONTEND=noninteractive
+apt update && apt full-upgrade -y && apt autoremove -y
+[ -e /var/run/reboot-required ] && sudo shutdown -r
