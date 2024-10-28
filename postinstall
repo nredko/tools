@@ -42,8 +42,10 @@ then
   cat /home/$SUDO_USER/.ssh/authorized_keys | grep -q nredko || echo "$keys" >> /home/$SUDO_USER/.ssh/authorized_keys
   chmod 700 /home/$SUDO_USER/.ssh
   chmod 600 /home/$SUDO_USER/.ssh/authorized_keys
+  chown -r $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.ssh
   echo "set -g mouse on
 set -g status off
+set -g status-bg colour240
 setw -g aggressive-resize on" > /home/"$SUDO_USER"/.tmux.conf
 fi
 
