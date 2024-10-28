@@ -1,0 +1,1 @@
+`curl https://raw.githubusercontent.com/nredko/tools/refs/heads/master/postinstall | bash`
