@@ -2,7 +2,7 @@
 
 if [[ $EUID -ne 0 ]];
 then
-    echo "Re-launching with `sudo`"
+    echo "Re-launching with 'sudo'"
     exec sudo /bin/bash "$0" "$@"
 fi
 
@@ -50,7 +50,7 @@ setw -g aggressive-resize on" > /home/"$SUDO_USER"/.tmux.conf
 fi
 
 # gitlab-runner repo
-curl -sL "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | bash
+curl -sL "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | bash -s
 
 # postgresql repo
 install -d /usr/share/postgresql-common/pgdg
