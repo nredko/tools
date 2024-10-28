@@ -2,7 +2,7 @@
 
 if [[ $EUID -ne 0 ]];
 then
-    echo "Re-launching with `sudo`"
+    echo "Re-launching with 'sudo'"
     exec sudo /bin/bash "$0" "$@"
 fi
 export NEEDRESTART_MODE=a
